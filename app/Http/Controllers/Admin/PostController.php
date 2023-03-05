@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -39,7 +40,17 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+        $slug = Post::generateSlug($request->title);
+
+        $form_data['slug'] = $slug;
+
+        $newPost = new Post();
+        $newPost->fill($form_data);
+        $newPost->save();
+
+        return redirect()->route('admin.posts.index')->with('message', 'Post creato correttamente');
     }
 
     /**
@@ -50,7 +61,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        
     }
 
     /**

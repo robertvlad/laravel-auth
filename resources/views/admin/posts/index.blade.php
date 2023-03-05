@@ -18,6 +18,8 @@
                     <th>ID</th>
                     <th>Titolo</th>
                     <th>Slug</th>
+                    <th>Data creazione</th>
+                    <th>Ultima modifica</th>
                     <th>Azioni</th>
                 </thead>
                 <tbody>
@@ -26,6 +28,8 @@
                             <td>{{ $post['id']}}</td>
                             <td>{{ $post['title']}}</td>
                             <td>{{ $post['slug']}}</td>
+                            <td>{{ $post['created_at']}}</td>
+                            <td>{{ $post['updated_at']}}</td>                            
                             <td>
                                 {{-- AZIONI --}}
                             </td>
