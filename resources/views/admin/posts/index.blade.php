@@ -28,7 +28,7 @@
                     <th>Azioni</th>
                 </thead>
                 <tbody>
-                    @foreach ($posts as $post)
+                    @forelse ($posts as $post)
                         <tr>
                             <td>{{ $post['id']}}</td>
                             <td>{{ $post['title']}}</td>
@@ -50,8 +50,14 @@
                                     </button>
                                 </form>
                             </td>
-                        </tr>                        
-                    @endforeach
+                        </tr>  
+                        @empty
+                        <tr>
+                            <td scope='row'>
+                                Nessun Post presente. <a href="{{ route('admin.posts.create') }}">CLICCA QUI</a> per creare un nuovo Post.    
+                            </td>  
+                        </tr>                   
+                    @endforelse
                 </tbody>
             </table>
         </div>
