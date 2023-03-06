@@ -39,6 +39,9 @@
                                 <a href="{{ route('admin.posts.show', ['post' => $post['slug']]) }}" title="Visualizza Post" class="btn btn-square btn-primary">
                                     <i class="fas fa-eye"></i>
                                 </a>
+                                <a href="{{ route('admin.posts.edit', ['post' => $post['slug']]) }}" title="Modifica Post" class="btn btn-square btn-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
                             </td>
                         </tr>                        
                     @endforeach
