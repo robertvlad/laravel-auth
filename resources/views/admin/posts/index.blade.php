@@ -12,11 +12,6 @@
                 <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Aggiungi Post</a>
             </div>
         </div>
-        @if(session('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}    
-            </div>            
-        @endif
         <div class="col-12">
             <table class="table table-striped">
                 <thead>

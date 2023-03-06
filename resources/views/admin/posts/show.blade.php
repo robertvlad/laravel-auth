@@ -6,6 +6,11 @@
     <div class="row">
         <div class="col-12">
             <h2 class="py-3">TITOLO: {{ $post['title'] }}</h2>
+            @if(session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}    
+                </div>            
+            @endif
             <div class="d-flex gap-3 pb-3">
                 <a href="{{ route('admin.posts.index') }}" class="btn btn-primary">Torna all'elenco</a>
             </div>
