@@ -48,7 +48,7 @@ class PostController extends Controller
 
         $newPost = Post::create($form_data);
 
-        return redirect()->route('admin.posts.index')->with('message', 'Post creato correttamente');
+        return redirect()->route('admin.posts.show', ['post' => $newPost['slug']])->with('message', 'Post creato correttamente');
     }
 
     /**
@@ -83,7 +83,15 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $form_data = $request->validated();
+
+        $slug = Post::generateSlug($request->title);
+
+        $form_data['slug'] = $slug;
+
+        $post->update($form_data);
+
+        return redirect()->route('admin.posts.show', ['post' => $post['slug']])->with('message', 'Post modificato correttamente');
     }
 
     /**

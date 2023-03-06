@@ -33,9 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">CONTENUTO</label>
-                        <textarea name="content" id="content" cols="30" rows="10" placeholder="Contenuto" class="form-control">
-                            {{ old('title') ?? $post['title']}}
-                        </textarea>
+                        <textarea name="content" id="content" cols="30" rows="10" placeholder="Contenuto" class="form-control">{{ old('title') ?? $post['title']}}</textarea>
                     </div>
                     <div class="form-group my-2">
                         <button type="submit" class="btn btn-success">Salva</button>                        
