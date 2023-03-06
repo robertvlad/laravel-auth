@@ -12,6 +12,11 @@
                 <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Aggiungi Post</a>
             </div>
         </div>
+        @if(session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}    
+            </div>            
+        @endif
         <div class="col-12">
             <table class="table table-striped">
                 <thead>
@@ -31,7 +36,9 @@
                             <td>{{ $post['created_at']}}</td>
                             <td>{{ $post['updated_at']}}</td>                            
                             <td>
-                                {{-- AZIONI --}}
+                                <a href="{{ route('admin.posts.show', ['post' => $post['slug']]) }}" title="Visualizza Post" class="btn btn-square btn-primary">
+                                    <i class="fas fa-eye"></i>
+                                </a>
                             </td>
                         </tr>                        
                     @endforeach

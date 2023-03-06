@@ -13,6 +13,7 @@ class Post extends Model
     use HasFactory;
 
     public static function generateSlug($title) {
+
         return Str::slug($title, '-');
     }
 }
